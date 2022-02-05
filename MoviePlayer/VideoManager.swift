@@ -8,7 +8,7 @@
 import Foundation
 
 enum Query: String, CaseIterable {
-    case nature, animals, people, ocean, food
+    case nature, animals, people, ocean, food, popular
 }
 
 class VideoManager: ObservableObject {
