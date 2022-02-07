@@ -18,10 +18,9 @@ struct VideoCard: View {
                     .frame(width: 160, height: 250)
                     .cornerRadius(30)
             } placeholder: {
-                Rectangle()
+                RoundedRectangle(cornerSize: CGSize(width: 30, height: 30))
                     .foregroundColor(.gray.opacity(0.5))
                     .frame(width: 160, height: 250)
-                    .cornerRadius(30)
             }
             
             VStack(alignment: .leading) {

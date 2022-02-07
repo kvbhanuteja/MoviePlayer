@@ -14,15 +14,18 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
+                ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 20) {
                     ForEach(Query.allCases, id: \.self) {
                         searchQuery in
                         QueryTag(query: searchQuery, isSelected: videoManager.selectedQuery == searchQuery)
                             .onTapGesture {
                                 self.videoManager.selectedQuery = searchQuery
                             }
+                        }
                     }
-                }
+                }.padding(.horizontal)
+                
                 ScrollView {
                     if videoManager.videos.isEmpty {
                         ProgressView()

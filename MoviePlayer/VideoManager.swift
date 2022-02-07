@@ -29,6 +29,9 @@ class VideoManager: ObservableObject {
     
     func findVideos(topic: Query) async {
         do {
+            DispatchQueue.main.async {
+                self.videos = []
+            }
             guard let url = URL(string: "https://api.pexels.com/videos/search?query=\(topic)&per_page=10&orientation=portrait") else {
                 fatalError("Missing url")
             }
