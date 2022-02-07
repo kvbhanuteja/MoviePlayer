@@ -13,12 +13,15 @@ struct VideoPlayerView: View {
     @State private var player = AVPlayer()
     var body: some View {
         VideoPlayer(player: player)
-            .edgesIgnoringSafeArea(.all)
+            .ignoresSafeArea()
             .onAppear {
                 if let link =  video.videoFiles.first?.link {
                     player = AVPlayer(url: URL(string: link)!)
                     player.play()
                 }
+            }
+            .onDisappear {
+                player.pause()
             }
     }
 }
